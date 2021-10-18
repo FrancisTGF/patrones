@@ -22,6 +22,11 @@ public class UsuarioSingleton {
 		
 		return usuarioUnico;
 	}
+	//Privatizamos el acceso al constructor
+	private UsuarioSingleton() {
+		super();
+	}
+
 	public String getEmail() {
 		return email;
 	}

@@ -19,6 +19,10 @@ public class PatronesApplication {
 		System.out.println(singleton);
 		UsuarioSingleton usuario2 = UsuarioSingleton.getUsuarioInstance("Pepe", "pepe@gmail.com", "98089793", "C/La Solana N13");
 		System.out.println(usuario2);
+		//forzamos el singleton
+		usuario2.getUsuarioInstance("Juan", "pepe@gmail.com", "98089793", "C/La Solana N13");
+		UsuarioSingleton usuario3 = UsuarioSingleton.getUsuarioInstance("Antonio", "pepe@gmail.com", "98089793", "C/La Solana N13");
+		System.out.println(usuario3);
 	}
 
 }

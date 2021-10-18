@@ -52,11 +52,23 @@ public class PatronesApplication {
 		//Retry
 		System.out.println("¿La conexion se encuentra activada? : " + UsuarioRetry.retry(0)); 
 		System.out.println("¿La conexion se encuentra activada? : " + UsuarioRetry.retry(1)); 
-
+			
+		
 		//CircuitBreak
 		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreak(0)); 
 		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreak(1)); 
 		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreak(2)); 
+		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreak(3)); 
+		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreak(4));
+			//Avanzado
+		Usuario  usuario5= new Usuario("Pepe", "pepe@gmail.com", "98089793", "C/La Solana N13");
+		
+		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreakAlimentarUsuario(UsuarioCircuitBreak.circuitBreak(0), usuario5)); 
+		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreakAlimentarUsuario(UsuarioCircuitBreak.circuitBreak(1), usuario5)); 
+		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreakAlimentarUsuario(UsuarioCircuitBreak.circuitBreak(2), usuario5)); 
+		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreakAlimentarUsuario(UsuarioCircuitBreak.circuitBreak(3), usuario5)); 
+		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreakAlimentarUsuario(UsuarioCircuitBreak.circuitBreak(4), usuario5)); 
+
 		
 
 		

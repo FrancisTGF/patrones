@@ -1,8 +1,12 @@
 package resilencia;
 
+import builder.UsuarioBuilder;
+import model.Usuario;
+import singleton.UsuarioSingleton;
+
 public class UsuarioCircuitBreak {
 
-	public static String circuitBreak(int error) {
+	public static int circuitBreak(int error) {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -10,25 +14,73 @@ public class UsuarioCircuitBreak {
 		}
 		switch (error) {
 		case 0: {
-			
-			return "Open";
+			System.out.println("Open");
+			return 0;
 
 		}
 		case 1: {
-			return "Half-Open";
-			
+			System.out.println("Half-Open");
+			return 1;
+
 		}
 		case 2: {
-			return "Closed";
+			System.out.println("Closed");
+			return 2;
 		}
-		default : {
-			
-		}
-		return null;
+		case 3: {
+			System.out.println("Disabled");
+			return 3;
 
 		}
-
+		case 4: {
+			System.out.println("Forced-Open");
+			return 4;
+		}
+		default: {
+			return -1;
+		}
 		
+		}
+
+	}
+
+	public static Usuario circuitBreakAlimentarUsuario(int tipo, Usuario usuario) {
+
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		switch (tipo) {
+		case 0: {
+
+			return new UsuarioBuilder().build(usuario.getNombre(), usuario.getEmail(), usuario.getTelefono(),
+					usuario.getDireccion());
+
+		}
+		case 1: {
+
+			return new UsuarioBuilder().build2(usuario.getNombre(), usuario.getEmail(), usuario.getTelefono());
+
+		}
+		case 2: {
+			
+			return usuario = null ;
+		}
+		case 3: {
+			return new UsuarioBuilder().build4();
+
+		}
+		case 4: {
+			return new UsuarioBuilder().build5();
+		}
+		default: {
+
+		}
+			return null;
+
+		}
 	}
 
 }

@@ -12,7 +12,7 @@ public class Usuario {
 		super();
 	}
 
-	private Usuario(String email, String nombre, String telefono, String direccion) {
+	public Usuario(String email, String nombre, String telefono, String direccion) {
 		this.email = email;
 		this.nombre = nombre;
 		this.telefono = telefono;

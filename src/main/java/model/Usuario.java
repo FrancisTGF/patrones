@@ -5,6 +5,19 @@ public class Usuario {
 	private String nombre;
 	private String telefono;
 	private String direccion;
+ 
+	
+	
+	public Usuario() {
+		super();
+	}
+
+	private Usuario(String email, String nombre, String telefono, String direccion) {
+		this.email = email;
+		this.nombre = nombre;
+		this.telefono = telefono;
+		this.direccion = direccion;
+	}
 
 	public String getEmail() {
 		return email;
@@ -42,5 +55,10 @@ public class Usuario {
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
+	}
+	public Usuario clone() {
+		
+		return new Usuario(this.email, this.nombre,this.telefono, this.direccion);
+		
 	}
 }

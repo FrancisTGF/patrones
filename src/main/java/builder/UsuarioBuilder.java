@@ -2,10 +2,9 @@ package builder;
 
 import model.Usuario;
 
-public class UsuarioBuilder{
+public class UsuarioBuilder {
 
-	
-	public Usuario build(String nombre,String email,String telefono,String direccion) {
+	public Usuario build(String nombre, String email, String telefono, String direccion) {
 		Usuario usuario = new Usuario();
 		usuario.setNombre(nombre);
 		usuario.setEmail(email);
@@ -13,6 +12,5 @@ public class UsuarioBuilder{
 		usuario.setDireccion(direccion);
 		return usuario;
 	}
-	
 
 }

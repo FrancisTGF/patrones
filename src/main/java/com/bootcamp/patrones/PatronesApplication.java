@@ -62,11 +62,15 @@ public class PatronesApplication {
 		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreak(4));
 			//Avanzado
 		Usuario  usuario5= new Usuario("Pepe", "pepe@gmail.com", "98089793", "C/La Solana N13");
-		
+			//open
 		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreakAlimentarUsuario(UsuarioCircuitBreak.circuitBreak(0), usuario5)); 
+			//half-open
 		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreakAlimentarUsuario(UsuarioCircuitBreak.circuitBreak(1), usuario5)); 
+			//Closed
 		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreakAlimentarUsuario(UsuarioCircuitBreak.circuitBreak(2), usuario5)); 
+			//Disabled
 		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreakAlimentarUsuario(UsuarioCircuitBreak.circuitBreak(3), usuario5)); 
+			//Forced-open
 		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreakAlimentarUsuario(UsuarioCircuitBreak.circuitBreak(4), usuario5)); 
 
 		

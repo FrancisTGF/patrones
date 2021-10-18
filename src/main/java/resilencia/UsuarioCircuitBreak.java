@@ -2,7 +2,6 @@ package resilencia;
 
 import builder.UsuarioBuilder;
 import model.Usuario;
-import singleton.UsuarioSingleton;
 
 public class UsuarioCircuitBreak {
 

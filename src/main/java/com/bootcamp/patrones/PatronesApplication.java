@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import builder.UsuarioBuilder;
 import model.Usuario;
+import resilencia.UsuarioCircuitBreak;
 import resilencia.UsuarioRetry;
 import singleton.Singleton;
 import singleton.UsuarioSingleton;
@@ -49,8 +50,15 @@ public class PatronesApplication {
 		
 	//Resilencia
 		//Retry
-		System.out.println("¿La conexion se encuentra activada? : " + UsuarioRetry.retry()); 
+		System.out.println("¿La conexion se encuentra activada? : " + UsuarioRetry.retry(0)); 
+		System.out.println("¿La conexion se encuentra activada? : " + UsuarioRetry.retry(1)); 
+
 		//CircuitBreak
+		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreak(0)); 
+		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreak(1)); 
+		System.out.println("Estado : " + UsuarioCircuitBreak.circuitBreak(2)); 
+		
+
 		
 	}
 

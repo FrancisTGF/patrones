@@ -1,11 +1,14 @@
 package com.bootcamp.patrones;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import builder.UsuarioBuilder;
 import model.Usuario;
@@ -14,11 +17,9 @@ import resilencia.UsuarioRetry;
 import singleton.Singleton;
 import singleton.UsuarioSingleton;
 
-@SpringBootApplication
 public class PatronesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PatronesApplication.class, args);
 	//Patron Builder
 		Usuario usuario= new UsuarioBuilder().build("Pepe", "pepe@gmail.com", "98089793", "C/La Solana N13");
 		System.out.println(usuario);
@@ -75,6 +76,27 @@ public class PatronesApplication {
 
 		
 
+		
+		//RestTemplate peticion get a la baase de datos de pokemon
+				RestTemplate restTemplate = new RestTemplate();
+
+				String url = "https://pokeapi.co/api/v2/pokemon/ditto";
+
+				ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+
+				ObjectMapper mapper = new ObjectMapper();
+				JsonNode root;
+				try {
+					root = mapper.readTree(response.getBody());
+					JsonNode form = root.path("forms");
+					JsonNode name =  root.path("name");
+					System.out.println(form);
+					System.out.println(name);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+		
 		
 	}
 
